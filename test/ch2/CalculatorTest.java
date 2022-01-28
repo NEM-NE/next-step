@@ -31,35 +31,4 @@ class CalculatorTest {
         assertEquals(2, cal.divide(6, 3));
     }
 
-    @Test
-    void splitInput(){
-        cal.setInput("1,2:3");
-        assertArrayEquals(new int[]{1, 2, 3}, cal.splitInput());
-
-        cal.setInput("1,2,3");
-        assertArrayEquals(new int[]{1, 2, 3}, cal.splitInput());
-
-        cal.setInput("1:2:3");
-        assertArrayEquals(new int[]{1, 2, 3}, cal.splitInput());
-    }
-
-    @Test
-    void detectDelimiter() {
-        String[] result = cal.detectDelimiter("//;\n1;2;3");
-        assertArrayEquals(new String[]{"1", "2", "3"}, result);
-
-        result = cal.detectDelimiter("//!\n1!2!3");
-        assertArrayEquals(new String[]{"1", "2", "3"}, result);
-    }
-
-    @Test
-    void calWithAdd() {
-        cal.setInput("1,2:3");
-        assertEquals(6, cal.calWithAdd());
-
-        cal.setInput("//;\n1;2;3");
-        assertEquals(6, cal.calWithAdd());
-    }
-
-
 }
